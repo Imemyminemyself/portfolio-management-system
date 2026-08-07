@@ -1,3 +1,14 @@
+# Local environment/config
+config/database.php
+
+# IDE/editor files
 .vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
 *.log
-.env
+*.tmp
