@@ -1,54 +1,81 @@
-# Portfolio Management System
+#  Portfolio Management System
 
-A web-based Portfolio Management System developed as an academic project.
+A web-based **Portfolio Management System** developed as an academic project.
 
-The system allows users to manage multiple Demat accounts and view their stock holdings in an organized manner. It also provides portfolio summaries and IPO-related news through an administrator-managed system.
+The system is designed to help users manage multiple Demat accounts and view their holdings in an organized manner. It also provides portfolio information and IPO news managed by an administrator.
 
-## 📌 Project Overview
+>  **Project Status:** Under Development
 
-Managing investments across multiple Demat accounts can make it difficult to keep track of holdings in one place.
+---
 
-This project aims to provide a simple web-based system where a user can:
+## 📌 About the Project
 
-- Manage multiple Demat accounts
-- View holdings associated with each Demat account
-- View companies held across their Demat accounts
-- Search companies in their portfolio
-- View summarized portfolio information
-- Stay updated with IPO news
+Managing investments across multiple Demat accounts can make it difficult to keep track of holdings and portfolio information in one place.
 
-An administrator can manage company information and IPO news.
+The **Portfolio Management System** aims to provide a centralized platform where users can manage their Demat accounts and view the companies and holdings associated with them.
 
-## Features
+The system also provides an **IPO News** section where users can view IPO-related information managed by an administrator.
 
-### User
+---
 
-- User registration and login
-- Secure session-based authentication
-- Add Demat accounts
-- Remove Demat accounts
-- View Demat account details
-- View stock holdings
-- Search companies within the portfolio
-- View portfolio summaries
-- View IPO news
+## Objectives
+
+The main objectives of this project are to:
+
+- Provide a centralized system for managing multiple Demat accounts.
+- Allow users to add and remove their Demat accounts.
+- Allow users to view holdings associated with each Demat account.
+- Provide a summarized view of the user's portfolio.
+- Allow users to search for companies already present in their portfolio.
+- Provide IPO-related news in one place.
+- Allow administrators to manage company and IPO news information.
+
+---
+
+##  Features
+
+###  User
+
+- [x] User registration
+- [x] User login
+- [x] User logout
+- [x] Multiple Demat account support
+- [x] Add Demat account
+- [x] Remove Demat account
+- [ ] View Demat account holdings
+- [ ] Portfolio summary
+- [ ] Company search
+- [ ] View IPO news
 
 ### Administrator
 
-- Manage company information
-- Manage IPO news
-- Manage relevant portfolio/company data
+- [ ] Administrator authentication
+- [ ] Manage companies
+- [ ] Manage IPO news
+- [ ] Add IPO news
+- [ ] Edit IPO news
+- [ ] Delete IPO news
 
-##  Technologies Used
+---
 
-- **Frontend:** HTML, CSS, JavaScript
-- **Backend:** PHP
-- **Database:** MySQL
-- **Development Environment:** XAMPP
-- **Version Control:** Git & GitHub
+## 🛠️ Technologies Used
 
-##  Project Structure
+| Technology | Purpose |
+|---|---|
+| HTML | Structure and frontend |
+| CSS | Styling and UI |
+| JavaScript | Client-side interactions |
+| PHP | Backend development |
+| MySQL | Database management |
+| XAMPP | Local development environment |
+| Git | Version control |
+| GitHub | Source code management |
 
+---
+
+## Project Structure
+
+```text
 portfolio-management-system/
 │
 ├── assets/
@@ -58,9 +85,16 @@ portfolio-management-system/
 ├── config/
 │   └── database.example.php
 │
+├── database/
+│   └── portfolio_management.sql
+│
 ├── login.php
 ├── register.php
 ├── logout.php
 ├── dashboard.php
+├── add_demat.php
+├── edit_demat.php
+├── delete_demat.php
 │
+├── .gitignore
 └── README.md
