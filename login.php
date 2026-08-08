@@ -65,32 +65,87 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+
+    <title>Login | Portfolio Management System</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
-    <h1>Login</h1>
+    <div class="auth-page">
 
-    <?php if (!empty($message)): ?>
-        <p><?= htmlspecialchars($message) ?></p>
-    <?php endif; ?>
+        <div class="auth-card">
 
-    <form method="POST">
+            <div class="auth-logo">
+                <h1>Portfolio Manager</h1>
+                <p>Manage your Demat accounts and investments</p>
+            </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+            <?php if (!empty($message)): ?>
 
-        <br><br>
+                <div class="alert alert-error">
+                    <?= htmlspecialchars($message) ?>
+                </div>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+            <?php endif; ?>
 
-        <br><br>
+            <form method="POST">
 
-        <button type="submit">Login</button>
+                <div class="form-group">
 
-    </form>
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                >
+                    Login
+                </button>
+
+            </form>
+
+            <div class="auth-footer">
+
+                Don't have an account?
+
+                <a href="register.php">
+                    Create one
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </body>
 
