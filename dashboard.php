@@ -30,6 +30,10 @@ if (!isset($_SESSION["user_id"])) {
         You are logged in successfully.
     </p>
 
+    <p>
+    <a href="my_demat.php">My Demat Accounts</a>
+</p>
+
     <a href="logout.php">Logout</a>
 </body>
 
