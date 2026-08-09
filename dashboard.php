@@ -6,6 +6,23 @@ if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
     exit;
 }
+require_once "config/database.php";
+
+$user_id = $_SESSION["user_id"];
+
+$stmt = $conn->prepare(
+    "SELECT id, account_name, account_holder, broker_name
+     FROM demat_accounts
+     WHERE user_id = ?
+     ORDER BY created_at DESC"
+);
+
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+
+$demat_accounts = $stmt->get_result();
+
+$demat_count = $demat_accounts->num_rows;
 
 ?>
 
@@ -146,7 +163,7 @@ if (!isset($_SESSION["user_id"])) {
 
                 <div>
                     <span>Demat Accounts</span>
-                    <strong>—</strong>
+                    <strong><?= $demat_count ?></strong>
                     <small>Accounts connected</small>
                 </div>
 
@@ -205,23 +222,69 @@ if (!isset($_SESSION["user_id"])) {
                 </div>
 
 
-                <div class="empty-state">
+                <div class="demat-list">
 
-                    <div class="empty-icon">
-                        ◉
-                    </div>
+    <?php if ($demat_accounts->num_rows > 0): ?>
 
-                    <h4>Your Demat accounts</h4>
+        <?php while ($account = $demat_accounts->fetch_assoc()): ?>
 
-                    <p>
-                        Add your Demat accounts to start managing your portfolio.
-                    </p>
+            <div class="demat-item">
 
-                    <a href="my_demat.php" class="primary-button">
-                        Manage Demat Accounts
-                    </a>
+                <div class="demat-item-icon">
+                    ◉
+                </div>
+
+                <div class="demat-item-info">
+
+                    <strong>
+                        <?= htmlspecialchars($account["account_name"]) ?>
+                    </strong>
+
+                    <span>
+                        <?= htmlspecialchars($account["account_holder"]) ?>
+                    </span>
+
+                    <small>
+                        <?= htmlspecialchars($account["broker_name"]) ?>
+                    </small>
 
                 </div>
+
+                <a
+                    href="my_demat.php"
+                    class="demat-arrow"
+                    title="View account"
+                >
+                    →
+                </a>
+
+            </div>
+
+        <?php endwhile; ?>
+
+    <?php else: ?>
+
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                ◉
+            </div>
+
+            <h4>No Demat accounts yet</h4>
+
+            <p>
+                Add a Demat account to start managing your portfolio.
+            </p>
+
+            <a href="my_demat.php" class="primary-button">
+                Add Demat Account
+            </a>
+
+        </div>
+
+    <?php endif; ?>
+
+</div>
 
             </div>
 

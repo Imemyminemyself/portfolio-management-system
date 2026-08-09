@@ -831,3 +831,76 @@ body {
     }
 
 }
+/* =========================
+   DEMAT ACCOUNT LIST
+   ========================= */
+
+.demat-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.demat-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px;
+    background: #0d100e;
+    border: 1px solid #202520;
+    border-radius: 8px;
+    transition: 0.2s ease;
+}
+
+.demat-item:hover {
+    background: #151a15;
+    border-color: #3b4e34;
+}
+
+.demat-item-icon {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: #1d2819;
+    color: #a8e875;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+
+.demat-item-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.demat-item-info strong {
+    color: #e4e6e1;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.demat-item-info span {
+    color: #858b84;
+    font-size: 10px;
+}
+
+.demat-item-info small {
+    color: #5f655e;
+    font-size: 9px;
+}
+
+.demat-arrow {
+    color: #717870;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.demat-arrow:hover {
+    color: #a8e875;
+}
