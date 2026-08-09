@@ -135,13 +135,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <div class="auth-footer">
 
-                Don't have an account?
+    <a href="forgot_password.php" class="forgot-password">
+        Forgot Password?
+    </a>
 
-                <a href="register.php">
-                    Create one
-                </a>
+    <p>
+        Don't have an account?
 
-            </div>
+        <a href="register.php">
+            Create one
+        </a>
+    </p>
+
+</div>
 
         </div>
 

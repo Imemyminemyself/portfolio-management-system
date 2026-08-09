@@ -904,3 +904,42 @@ body {
 .demat-arrow:hover {
     color: #a8e875;
 }
+.forgot-password {
+    display: block;
+    margin-bottom: 12px;
+    color: #a4e56d;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.forgot-password:hover {
+    color: #b5ee80;
+}
+
+.auth-footer p {
+    margin: 0;
+}
+.reset-link-box {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    background: #151a15;
+    border: 1px solid #2a3528;
+    text-align: center;
+}
+
+.reset-link-box p {
+    margin: 0 0 8px;
+    color: #858b84;
+    font-size: 11px;
+}
+
+.reset-link-box a {
+    color: #a8e875;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.reset-link-box a:hover {
+    text-decoration: underline;
+}
