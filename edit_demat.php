@@ -120,96 +120,412 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Edit Demat Account</title>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Edit Demat Account | Portfolio Manager</title>
+
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css"
+    >
+
 </head>
 
-<body>
+<body class="demat-page">
 
-    <h1>Edit Demat Account</h1>
+<div class="demat-layout">
 
-    <a href="my_demat.php">Back to My Demat Accounts</a>
 
-    <br><br>
+    <!-- ================= SIDEBAR ================= -->
 
-    <?php if (!empty($message)): ?>
+    <aside class="demat-sidebar">
 
-        <p>
-            <?= htmlspecialchars($message) ?>
-        </p>
+        <div class="sidebar-brand">
 
-    <?php endif; ?>
+            <div class="brand-icon">
+                P
+            </div>
 
-    <form method="POST">
+            <div>
+                <h2>Portfolio</h2>
+                <span>Manager</span>
+            </div>
 
-        <label for="account_name">
-            Account Name:
-        </label>
+        </div>
 
-        <input
-            type="text"
-            id="account_name"
-            name="account_name"
-            value="<?= htmlspecialchars($demat["account_name"]) ?>"
-            required
-        >
 
-        <br><br>
+        <div class="sidebar-section-title">
+            MENU
+        </div>
 
-        <label for="account_holder">
-            Account Holder:
-        </label>
 
-        <input
-            type="text"
-            id="account_holder"
-            name="account_holder"
-            value="<?= htmlspecialchars($demat["account_holder"]) ?>"
-            required
-        >
+        <nav class="sidebar-nav">
 
-        <br><br>
+            <a href="dashboard.php">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
 
-        <label for="broker_name">
-            Broker Name:
-        </label>
+            <a href="my_demat.php" class="active">
+                <span class="nav-icon">▣</span>
+                <span>My Demat</span>
+            </a>
 
-        <input
-            type="text"
-            id="broker_name"
-            name="broker_name"
-            value="<?= htmlspecialchars($demat["broker_name"]) ?>"
-            required
-        >
+            <a href="#">
+                <span class="nav-icon">◇</span>
+                <span>Holdings</span>
+            </a>
 
-        <br><br>
+            <a href="#">
+                <span class="nav-icon">◆</span>
+                <span>Companies</span>
+            </a>
 
-        <label for="boid">
-            BOID:
-        </label>
+            <a href="#">
+                <span class="nav-icon">▤</span>
+                <span>IPO News</span>
+            </a>
 
-        <input
-            type="text"
-            id="boid"
-            name="boid"
-            value="<?= htmlspecialchars($demat["boid"]) ?>"
-            required
-        >
+        </nav>
 
-        <br><br>
 
-        <button type="submit">
-            Update Demat
-        </button>
+        <div class="sidebar-bottom">
 
-    </form>
+            <a href="logout.php">
+                <span class="nav-icon">↪</span>
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="demat-main">
+
+
+        <!-- TOP BAR -->
+
+        <header class="demat-topbar">
+
+            <div class="topbar-search">
+
+                <span>⌕</span>
+
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    aria-label="Search"
+                >
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <button
+                    type="button"
+                    class="topbar-icon"
+                    aria-label="Notifications"
+                >
+                    ♧
+                </button>
+
+                <button
+                    type="button"
+                    class="topbar-icon"
+                    aria-label="Settings"
+                >
+                    ⚙
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <section class="demat-content add-demat-content">
+
+
+            <!-- BACK -->
+
+            <a
+                href="my_demat.php"
+                class="back-link"
+            >
+                ← Back to My Demat
+            </a>
+
+
+            <!-- HEADER -->
+
+            <div class="add-demat-heading">
+
+                <span class="eyebrow">
+                    MY DEMAT
+                </span>
+
+                <h1>
+                    Edit Account
+                </h1>
+
+                <p>
+                    Update the information associated
+                    with this Demat account.
+                </p>
+
+            </div>
+
+
+            <!-- ================= FORM ================= -->
+
+            <div class="add-demat-layout">
+
+
+                <div class="add-demat-card">
+
+
+                    <div class="form-card-header">
+
+                        <div class="form-header-icon edit-icon">
+                            ✎
+                        </div>
+
+                        <div>
+
+                            <h2>
+                                Account Information
+                            </h2>
+
+                            <p>
+                                Make changes to your account details below.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <?php if (!empty($message)): ?>
+
+                        <div class="demat-message">
+
+                            <?= htmlspecialchars($message) ?>
+
+                        </div>
+
+                    <?php endif; ?>
+
+
+                    <form
+                        method="POST"
+                        class="demat-form"
+                    >
+
+
+                        <!-- ACCOUNT NAME -->
+
+                        <div class="demat-form-group">
+
+                            <label for="account_name">
+                                Account Name
+                            </label>
+
+                            <span class="field-hint">
+                                A name to help you identify this account
+                            </span>
+
+                            <input
+                                type="text"
+                                id="account_name"
+                                name="account_name"
+                                value="<?= htmlspecialchars($demat["account_name"]) ?>"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- ACCOUNT HOLDER -->
+
+                        <div class="demat-form-group">
+
+                            <label for="account_holder">
+                                Account Holder
+                            </label>
+
+                            <span class="field-hint">
+                                Name registered with your broker
+                            </span>
+
+                            <input
+                                type="text"
+                                id="account_holder"
+                                name="account_holder"
+                                value="<?= htmlspecialchars($demat["account_holder"]) ?>"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- BROKER -->
+
+                        <div class="demat-form-group">
+
+                            <label for="broker_name">
+                                Broker / DP Name
+                            </label>
+
+                            <span class="field-hint">
+                                The broker or Depository Participant
+                            </span>
+
+                            <input
+                                type="text"
+                                id="broker_name"
+                                name="broker_name"
+                                value="<?= htmlspecialchars($demat["broker_name"]) ?>"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- BOID -->
+
+                        <div class="demat-form-group">
+
+                            <label for="boid">
+                                BOID
+                            </label>
+
+                            <span class="field-hint">
+                                Your Beneficial Owner ID
+                            </span>
+
+                            <input
+                                type="text"
+                                id="boid"
+                                name="boid"
+                                value="<?= htmlspecialchars($demat["boid"]) ?>"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- ACTIONS -->
+
+                        <div class="demat-form-actions">
+
+                            <a
+                                href="my_demat.php"
+                                class="form-cancel-btn"
+                            >
+                                Cancel
+                            </a>
+
+                            <button
+                                type="submit"
+                                class="form-submit-btn"
+                            >
+                                <span>✓</span>
+                                Save Changes
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+
+
+                <!-- ================= INFO ================= -->
+
+                <aside class="demat-info-card">
+
+                    <div class="info-icon edit-info-icon">
+                        ✎
+                    </div>
+
+                    <h3>
+                        Updating your account
+                    </h3>
+
+                    <p>
+                        Changes made here will update the
+                        information displayed throughout
+                        your portfolio.
+                    </p>
+
+
+                    <div class="info-divider"></div>
+
+
+                    <div class="info-item">
+
+                        <span class="info-check">
+                            ✓
+                        </span>
+
+                        <span>
+                            Review your details before saving
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span class="info-check">
+                            ✓
+                        </span>
+
+                        <span>
+                            Your holdings remain connected
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span class="info-check">
+                            ✓
+                        </span>
+
+                        <span>
+                            Changes apply immediately
+                        </span>
+
+                    </div>
+
+                </aside>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
 
 </body>
 
